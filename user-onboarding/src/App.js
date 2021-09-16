@@ -42,11 +42,11 @@ export default function App() {
   const postNewData =newData =>{
     axios.post('https://reqres.in/api/users',newData)
     .then(res =>{
-      setPeoples([res.data.data,...peoples]);
-      
+      setPeoples([res.data,...peoples]);
+      setFormValues(initialFormValues);
     }).catch(err =>{
       console.error(err);
-
+      setFormValues(initialFormValues);
     })
   }
   // when submit all the value inside input to add newimputdata to database
