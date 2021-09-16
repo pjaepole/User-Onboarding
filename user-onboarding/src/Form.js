@@ -7,11 +7,14 @@ export default function Form(props){
         submit,
         disabled,
         errors,
+        setFormValues,
+      initialFormValues
     } =props
 
     const onSubmit = evt =>{
         evt.preventDefault()
         submit()
+        setFormValues(initialFormValues)
     }
 
     const onChange = evt =>{
@@ -23,7 +26,7 @@ export default function Form(props){
         <div>
             <h1>This is from Form.js</h1>
             <form onSubmit={onSubmit}>
-                <button disabled={disabled}>submit</button>
+                <button name='submit'disabled={disabled}>submit</button>
                 <div>
                     <div>{errors.username}</div>
                     <div>{errors.first_name}</div>
@@ -32,6 +35,7 @@ export default function Form(props){
                     <div>{errors.password}</div>
                     <div>{errors.tos}</div>
                 </div>
+                
                 <label>Username
                     <input
                     value={values.username}
@@ -39,6 +43,7 @@ export default function Form(props){
                     name='username'
                     type='text'/>
                 </label>
+                <br/>
                 <label>Firstname
                     <input
                     values={values.first_name}
@@ -46,6 +51,7 @@ export default function Form(props){
                     name='first_name'
                     type='text'/>
                 </label>
+                <br/>
                 <label>Lastname
                     <input
                     values={values.last_name}
@@ -53,6 +59,7 @@ export default function Form(props){
                     name='last_name'
                     type='text'/>
                 </label>
+                <br/>
                 <label>Email
                     <input
                      values={values.email}
@@ -61,6 +68,7 @@ export default function Form(props){
                     type='text'
                     />
                 </label>
+                <br/>
                 <label>Password
                     <input
                      values={values.password}
@@ -69,6 +77,7 @@ export default function Form(props){
                     type='password'
                     />
                 </label>
+                <br/>
                 <label>Terms of Service
                     <input
                     type='checkbox'

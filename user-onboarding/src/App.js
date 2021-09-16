@@ -60,6 +60,7 @@ export default function App() {
       tos: formValues.tos
     }
     postNewData(newInputdata);
+    setFormValues(initialFormValues);
   }
 
   useEffect(()=>{
@@ -88,7 +89,9 @@ export default function App() {
       change={inputChange}
       submit={formSubmit}
       disabled={disabled}
-      errors={formErrors}/>
+      errors={formErrors}
+      setFormValues={setFormValues}
+      initialFormValues={initialFormValues}/>
      
       {peoples.map(function(people){
         return <SubmittedForm details={people}></SubmittedForm>

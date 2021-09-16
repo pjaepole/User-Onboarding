@@ -23,7 +23,9 @@ const formSchema = yup.object().shape({
         .trim()
         .required('Yes, password is required')
         .min(4, "Password is required I think"),
-    tos: yup.boolean()
+    tos: yup
+    .boolean()
+    .oneOf([true],'field must be checked')
 })
 
 export default formSchema;
